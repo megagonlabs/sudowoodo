@@ -1,0 +1,16 @@
+CUDA_VISIBLE_DEVICES=0 python train_bt.py \
+    --mlflow_tag random_run \
+    --task_type cleaning \
+    --task beers \
+    --logdir result_cleaning/ \
+    --ssl_method simclr \
+    --clustering \
+    --batch_size 64 \
+    --lr 5e-5 \
+    --lm roberta \
+    --n_ssl_epochs 3 \
+    --n_epochs 50 \
+    --max_len 128 \
+    --da cutoff \
+    --fp16 \
+    --run_id 0
