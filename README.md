@@ -112,6 +112,11 @@ Parameters:
 
 The model configurations (e.g., max_len, lm, projector) have to be the same as the training configurations
 
+## Data Cleaning
+
+Our framework also supports the data cleaning task. Please see ``cleaning_example_command.sh`` for reference. More details can be found in Section V of the paper. We provide four datasets in ``data/cleaning/`` for evaluation: beers, hospital, rayyan, and tax.
+
+
 ## Column type detection
 
 See ``column_type_detection/``.
