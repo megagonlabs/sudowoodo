@@ -40,7 +40,7 @@ class Augmenter(object):
             if pos1 < 0:
                 return tokens, labels
             new_tokens = tokens[:pos1] + tokens[pos2+1:]
-            new_labels = tokens[:pos1] + labels[pos2+1:]
+            new_labels = labels[:pos1] + labels[pos2+1:]
         elif 'swap' in op:
             span_len = random.randint(2, 4)
             pos1, pos2 = self.sample_span(tokens, labels, span_len=span_len)
@@ -49,7 +49,7 @@ class Augmenter(object):
             sub_arr = tokens[pos1:pos2+1]
             random.shuffle(sub_arr)
             new_tokens = tokens[:pos1] + sub_arr + tokens[pos2+1:]
-            new_labels = tokens[:pos1] + ['O'] * (pos2 - pos1 + 1) + labels[pos2+1:]
+            new_labels = labels[:pos1] + ['O'] * (pos2 - pos1 + 1) + labels[pos2+1:]
         elif 'drop_len' in op:
             # drop tokens below a certain length
             all_lens = [len(token) for token, label in \
